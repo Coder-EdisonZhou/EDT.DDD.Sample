@@ -1,4 +1,5 @@
 ﻿using EDT.DDD.Sample.API.Domain.Core.SeedWork;
+using EDT.DDD.Sample.API.Infrastructure.POs.Leave;
 using EDT.DDD.Sample.API.Infrastructure.POs.Person;
 using EDT.DDD.Sample.API.Infrastructure.POs.Rule;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +24,12 @@ namespace EDT.DDD.Sample.API.Infrastructure.Context
         }
 
         public virtual DbSet<PersonPO> Person
+        {
+            get;
+            set;
+        }
+
+        public virtual DbSet<LeavePO> Leaves
         {
             get;
             set;
