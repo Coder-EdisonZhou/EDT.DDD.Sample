@@ -33,7 +33,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Application\Events\" />
+    <Folder Include="Application\Events\Publish\" />
+    <Folder Include="Application\Events\Subscribe\" />
     <Folder Include="Domain\PersonAggregate\Events\" />
     <Folder Include="Domain\RuleAggregate\Entities\ValueObjects\" />
     <Folder Include="Domain\RuleAggregate\Events\" />
