@@ -32,9 +32,9 @@ namespace EDT.DDD.Sample.API.Infrastructure.Extensions
             services.AddScoped<ILeaveDomainService, LeaveDomainService>();
             services.AddScoped<IPersonDomainService, PersonDomainService>();
             services.AddScoped<IApprovalRuleDomainService, ApprovalRuleDomainService>();
-            services.AddScoped<LeaveFactory>();
-            services.AddScoped<PersonFactory>();
-            services.AddScoped<ApprovalRuleFactory>();
+            services.AddSingleton<LeaveFactory>();
+            services.AddSingleton<PersonFactory>();
+            services.AddSingleton<ApprovalRuleFactory>();
 
             return services;
         }
