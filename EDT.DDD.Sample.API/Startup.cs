@@ -1,6 +1,7 @@
 using AutoMapper;
 using EDT.DDD.Sample.API.Infrastructure.Context;
 using EDT.DDD.Sample.API.Infrastructure.Extensions;
+using EDT.DDD.Sample.API.Infrastructure.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -23,11 +24,9 @@ namespace EDT.DDD.Sample.API
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutofacRegister();
             services.AddControllers();
-            services.AddApplicationServices()
-                .AddDomainServices()
-                .AddInfraRepositories()
-                .AddReferencedWebAPIs()
+            services.AddReferencedWebAPIs()
                 .AddAutoMapper()
                 .AddDbContext<SampleDbContext>(
                     options => options.UseMySql(Configuration["DataBase:ConnStr"]));
