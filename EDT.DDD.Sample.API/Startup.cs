@@ -1,4 +1,5 @@
 using AutoMapper;
+using EDT.DDD.Sample.API.Application.APIs;
 using EDT.DDD.Sample.API.Infrastructure.Context;
 using EDT.DDD.Sample.API.Infrastructure.Extensions;
 using EDT.DDD.Sample.API.Infrastructure.Utils;
@@ -26,7 +27,7 @@ namespace EDT.DDD.Sample.API
         {
             services.AddAutofacRegister();
             services.AddControllers();
-            services.AddReferencedWebAPIs()
+            services.AddWebAPI<IAuthServiceAPI>()
                 .AddAutoMapper()
                 .AddDbContext<SampleDbContext>(
                     options => options.UseMySql(Configuration["DataBase:ConnStr"]));
