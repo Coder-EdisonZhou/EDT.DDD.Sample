@@ -1,8 +1,8 @@
 using AutoMapper;
 using EDT.DDD.Sample.API.Application.APIs;
 using EDT.DDD.Sample.API.Infrastructure.Context;
-using EDT.DDD.Sample.API.Infrastructure.Extensions;
 using EDT.DDD.Sample.API.Infrastructure.Utils;
+using EDT.DDD.Sample.API.Models.Mappings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -25,8 +25,8 @@ namespace EDT.DDD.Sample.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAutofacRegister();
             services.AddControllers();
+            services.AddAutofacRegister();
             services.AddWebAPI<IAuthServiceAPI>()
                 .AddAutoMapper()
                 .AddDbContext<SampleDbContext>(
@@ -37,6 +37,7 @@ namespace EDT.DDD.Sample.API
                 x.UseInMemoryStorage();
                 x.UseInMemoryMessageQueue();
             });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "EDT.DDD.Sample.API", Version = "v1" });
@@ -58,8 +59,9 @@ namespace EDT.DDD.Sample.API
                 .UseEndpoints(endpoints =>
                 {
                     endpoints.MapControllers();
-                })
-                .IntializeMappingProfiles();
+                });
+
+            app.UseAutoMapperMappingProfiles();
         }
     }
 }
