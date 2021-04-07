@@ -1,19 +1,20 @@
 ﻿using EDT.DDD.Sample.API.Domain.Core.SeedWork;
-using EDT.DDD.Sample.API.Infrastructure.POs.Leave;
+using EDT.DDD.Sample.API.Domain.LeaveAggregate.Entities;
+using EDT.DDD.Sample.API.Domain.LeaveAggregate.Events;
 using System.Collections.Generic;
 
 namespace EDT.DDD.Sample.API.Domain.LeaveAggregate.Repositories
 {
-    public interface ILeaveRepository : IRepository<LeavePO>
+    public interface ILeaveRepository : IRepository<Leave>
     {
-        void Save(LeavePO leave);
+        void Save(Leave leave);
 
-        void SaveEvent(LeaveEventPO leaveEvent);
+        void SaveEvent(LeaveEvent leaveEvent);
 
-        LeavePO GetById(string id);
+        Leave GetById(string id);
 
-        List<LeavePO> GetByApplicantId(string applicantId);
+        List<Leave> GetByApplicantId(string applicantId);
 
-        List<LeavePO> GetByApproverId(string approverId);
+        List<Leave> GetByApproverId(string approverId);
     }
 }

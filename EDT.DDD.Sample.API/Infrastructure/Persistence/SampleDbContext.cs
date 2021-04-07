@@ -1,12 +1,12 @@
 ﻿using EDT.DDD.Sample.API.Domain.Core.SeedWork;
-using EDT.DDD.Sample.API.Infrastructure.POs.Leave;
-using EDT.DDD.Sample.API.Infrastructure.POs.Person;
-using EDT.DDD.Sample.API.Infrastructure.POs.Rule;
+using EDT.DDD.Sample.API.Domain.LeaveAggregate.Entities;
+using EDT.DDD.Sample.API.Domain.PersonAggregate.Entities;
+using EDT.DDD.Sample.API.Domain.RuleAggregate.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace EDT.DDD.Sample.API.Infrastructure.Context
+namespace EDT.DDD.Sample.API.Infrastructure.Persistence
 {
     public class SampleDbContext : DbContext, IUnitOfWork
     {
@@ -17,19 +17,19 @@ namespace EDT.DDD.Sample.API.Infrastructure.Context
         {
         }
 
-        public virtual DbSet<ApprovalRulePO> ApprovalRules
+        public virtual DbSet<ApprovalRule> ApprovalRules
         {
             get;
             set;
         }
 
-        public virtual DbSet<PersonPO> Person
+        public virtual DbSet<Person> Person
         {
             get;
             set;
         }
 
-        public virtual DbSet<LeavePO> Leaves
+        public virtual DbSet<Leave> Leaves
         {
             get;
             set;

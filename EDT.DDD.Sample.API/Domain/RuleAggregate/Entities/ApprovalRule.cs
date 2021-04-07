@@ -1,8 +1,9 @@
 ﻿using EDT.DDD.Sample.API.Domain.LeaveAggregate.Entities;
+using EDT.DDD.Sample.API.Domain.SeedWork;
 
 namespace EDT.DDD.Sample.API.Domain.RuleAggregate.Entities
 {
-    public class ApprovalRule
+    public class ApprovalRule : IAggregateRoot
     {
         public string PersonType { get; set; }
 

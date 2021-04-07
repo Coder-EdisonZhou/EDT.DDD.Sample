@@ -1,7 +1,5 @@
-﻿using AutoMapper;
-using EDT.DDD.Sample.API.Domain.RuleAggregate.Entities;
+﻿using EDT.DDD.Sample.API.Domain.RuleAggregate.Entities;
 using EDT.DDD.Sample.API.Domain.RuleAggregate.Repositories;
-using EDT.DDD.Sample.API.Infrastructure.POs.Rule;
 using System;
 
 namespace EDT.DDD.Sample.API.Domain.RuleAggregate.Services
@@ -24,8 +22,7 @@ namespace EDT.DDD.Sample.API.Domain.RuleAggregate.Services
             approvalRule.LeaveType = leaveType;
             approvalRule.Duration = duration;
 
-            var approvalRulePO = _approvalRuleFactory.CreateApprovalRulePO(approvalRule);
-            return _approvalRuleRepository.GetLeaderMaxLevel(approvalRulePO);
+            return _approvalRuleRepository.GetLeaderMaxLevel(approvalRule);
         }
     }
 }

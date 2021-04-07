@@ -1,6 +1,6 @@
 using AutoMapper;
 using EDT.DDD.Sample.API.Application.APIs;
-using EDT.DDD.Sample.API.Infrastructure.Context;
+using EDT.DDD.Sample.API.Infrastructure.Persistence;
 using EDT.DDD.Sample.API.Infrastructure.Utils;
 using EDT.DDD.Sample.API.Models.Mappings;
 using Microsoft.AspNetCore.Builder;

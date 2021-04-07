@@ -30,10 +30,10 @@ namespace EDT.DDD.Sample.API.Domain.LeaveAggregate.Services
             leave.Approver = approver;
             leave.Create();
 
-            _leaveRepository.Save(_leaveFactory.CreateLeavePO(leave));
+            _leaveRepository.Save(leave);
 
             var leaveEvent = new LeaveEvent(LeaveEventType.CREATE_EVENT, leave);
-            _leaveRepository.SaveEvent(_leaveFactory.CreateLeaveEventPO(leaveEvent));
+            _leaveRepository.SaveEvent(leaveEvent);
 
             var successCount = await _leaveRepository.UnitOfWork.SaveChangesAsync();
             if (successCount > 0)
@@ -50,7 +50,7 @@ namespace EDT.DDD.Sample.API.Domain.LeaveAggregate.Services
                 throw new SampleDomainException("Leave does not exists!");
             }
 
-            _leaveRepository.Save(_leaveFactory.CreateLeavePO(leave));
+            _leaveRepository.Save(leave);
             await _leaveRepository.UnitOfWork.SaveChangesAsync();
         }
 
@@ -82,8 +82,8 @@ namespace EDT.DDD.Sample.API.Domain.LeaveAggregate.Services
 
             leave.AddHistoryApprovalInfo(leave.CurrentApprovalInfo);
 
-            _leaveRepository.Save(_leaveFactory.CreateLeavePO(leave));
-            _leaveRepository.SaveEvent(_leaveFactory.CreateLeaveEventPO(leaveEvent));
+            _leaveRepository.Save(leave);
+            _leaveRepository.SaveEvent(leaveEvent);
             var successCount = await _leaveRepository.UnitOfWork.SaveChangesAsync();
 
             if (successCount > 0)
@@ -94,20 +94,20 @@ namespace EDT.DDD.Sample.API.Domain.LeaveAggregate.Services
 
         public Leave GetLeaveInfo(string leaveId)
         {
-            var leavePO = _leaveRepository.GetById(leaveId);
-            return _leaveFactory.GetLeave(leavePO);
+            var leave = _leaveRepository.GetById(leaveId);
+            return leave;
         }
 
         public List<Leave> GetLeaveInfosByApplicant(string applicantId)
         {
-            var leavePOs = _leaveRepository.GetByApplicantId(applicantId);
-            return _leaveFactory.GetLeaves(leavePOs);
+            var leaves = _leaveRepository.GetByApplicantId(applicantId);
+            return leaves;
         }
 
         public List<Leave> GetLeaveInfosByApprover(string approverId)
         {
-            var leavePOs = _leaveRepository.GetByApproverId(approverId);
-            return _leaveFactory.GetLeaves(leavePOs);
+            var leaves = _leaveRepository.GetByApproverId(approverId);
+            return leaves;
         }
     }
 }

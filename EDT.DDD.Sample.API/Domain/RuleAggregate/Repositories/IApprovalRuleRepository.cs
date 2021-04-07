@@ -1,10 +1,10 @@
 ﻿using EDT.DDD.Sample.API.Domain.Core.SeedWork;
-using EDT.DDD.Sample.API.Infrastructure.POs.Rule;
+using EDT.DDD.Sample.API.Domain.RuleAggregate.Entities;
 
 namespace EDT.DDD.Sample.API.Domain.RuleAggregate.Repositories
 {
-    public interface IApprovalRuleRepository : IRepository<ApprovalRulePO>
+    public interface IApprovalRuleRepository : IRepository<ApprovalRule>
     {
-        int GetLeaderMaxLevel(ApprovalRulePO approvalRule);
+        int GetLeaderMaxLevel(ApprovalRule approvalRule);
     }
 }

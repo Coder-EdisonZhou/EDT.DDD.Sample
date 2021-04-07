@@ -1,4 +1,5 @@
 ﻿using EDT.DDD.Sample.API.Domain.LeaveAggregate.Entities.ValueObjects;
+using EDT.DDD.Sample.API.Domain.SeedWork;
 using System;
 using System.Collections.Generic;
 
@@ -7,7 +8,7 @@ namespace EDT.DDD.Sample.API.Domain.LeaveAggregate.Entities
     /// <summary>
     /// 请假单实体
     /// </summary>
-    public class Leave
+    public class Leave : IAggregateRoot
     {
         public string Id { get; set; }
 

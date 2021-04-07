@@ -1,7 +1,7 @@
 ﻿using EDT.DDD.Sample.API.Domain.Core.SeedWork;
+using EDT.DDD.Sample.API.Domain.RuleAggregate.Entities;
 using EDT.DDD.Sample.API.Domain.RuleAggregate.Repositories;
-using EDT.DDD.Sample.API.Infrastructure.Context;
-using EDT.DDD.Sample.API.Infrastructure.POs.Rule;
+using EDT.DDD.Sample.API.Infrastructure.Persistence;
 using System;
 
 namespace EDT.DDD.Sample.API.Infrastructure.Repositories
@@ -23,7 +23,7 @@ namespace EDT.DDD.Sample.API.Infrastructure.Repositories
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         }
 
-        public int GetLeaderMaxLevel(ApprovalRulePO approvalRule)
+        public int GetLeaderMaxLevel(ApprovalRule approvalRule)
         {
             throw new NotImplementedException();
         }

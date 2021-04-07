@@ -1,4 +1,5 @@
 ﻿using EDT.DDD.Sample.API.Domain.PersonAggregate.Entities.ValueObjects;
+using EDT.DDD.Sample.API.Domain.SeedWork;
 using System;
 using System.Collections.Generic;
 
@@ -7,7 +8,7 @@ namespace EDT.DDD.Sample.API.Domain.PersonAggregate.Entities
     /// <summary>
     /// 人员实体
     /// </summary>
-    public class Person
+    public class Person : IAggregateRoot
     {
         public string PersonId { get; set; }
 

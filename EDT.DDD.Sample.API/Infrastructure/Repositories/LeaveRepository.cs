@@ -1,7 +1,8 @@
 ﻿using EDT.DDD.Sample.API.Domain.Core.SeedWork;
+using EDT.DDD.Sample.API.Domain.LeaveAggregate.Entities;
+using EDT.DDD.Sample.API.Domain.LeaveAggregate.Events;
 using EDT.DDD.Sample.API.Domain.LeaveAggregate.Repositories;
-using EDT.DDD.Sample.API.Infrastructure.Context;
-using EDT.DDD.Sample.API.Infrastructure.POs.Leave;
+using EDT.DDD.Sample.API.Infrastructure.Persistence;
 using System;
 using System.Collections.Generic;
 
@@ -24,27 +25,27 @@ namespace EDT.DDD.Sample.API.Infrastructure.Repositories
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         }
 
-        public List<LeavePO> GetByApplicantId(string applicantId)
+        public List<Leave> GetByApplicantId(string applicantId)
         {
             throw new NotImplementedException();
         }
 
-        public List<LeavePO> GetByApproverId(string approverId)
+        public List<Leave> GetByApproverId(string approverId)
         {
             throw new NotImplementedException();
         }
 
-        public LeavePO GetById(string id)
+        public Leave GetById(string id)
         {
             throw new NotImplementedException();
         }
 
-        public void Save(LeavePO leave)
+        public void Save(Leave leave)
         {
             throw new NotImplementedException();
         }
 
-        public void SaveEvent(LeaveEventPO leaveEvent)
+        public void SaveEvent(LeaveEvent leaveEvent)
         {
             throw new NotImplementedException();
         }

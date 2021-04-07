@@ -1,16 +1,16 @@
 ﻿using EDT.DDD.Sample.API.Domain.Core.SeedWork;
-using EDT.DDD.Sample.API.Infrastructure.POs.Person;
+using EDT.DDD.Sample.API.Domain.PersonAggregate.Entities;
 
 namespace EDT.DDD.Sample.API.Domain.PersonAggregate.Repositories
 {
-    public interface IPersonRepository : IRepository<PersonPO>
+    public interface IPersonRepository : IRepository<Person>
     {
-        void Add(PersonPO person);
+        void Add(Person person);
 
-        void Update(PersonPO person);
+        void Update(Person person);
 
-        PersonPO GetById(string id);
+        Person GetById(string id);
 
-        PersonPO GetLeaderByPersonId(string personId);
+        Person GetLeaderByPersonId(string personId);
     }
 }

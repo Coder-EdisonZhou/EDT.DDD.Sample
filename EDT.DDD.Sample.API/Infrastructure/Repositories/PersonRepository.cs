@@ -1,7 +1,7 @@
 ﻿using EDT.DDD.Sample.API.Domain.Core.SeedWork;
+using EDT.DDD.Sample.API.Domain.PersonAggregate.Entities;
 using EDT.DDD.Sample.API.Domain.PersonAggregate.Repositories;
-using EDT.DDD.Sample.API.Infrastructure.Context;
-using EDT.DDD.Sample.API.Infrastructure.POs.Person;
+using EDT.DDD.Sample.API.Infrastructure.Persistence;
 using System;
 
 namespace EDT.DDD.Sample.API.Infrastructure.Repositories
@@ -23,22 +23,22 @@ namespace EDT.DDD.Sample.API.Infrastructure.Repositories
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         }
 
-        public void Add(PersonPO person)
+        public void Add(Person person)
         {
             _dbContext.Person.Add(person);
         }
 
-        public PersonPO GetById(string id)
+        public Person GetById(string id)
         {
             throw new NotImplementedException();
         }
 
-        public PersonPO GetLeaderByPersonId(string personId)
+        public Person GetLeaderByPersonId(string personId)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(PersonPO person)
+        public void Update(Person person)
         {
             throw new NotImplementedException();
         }
